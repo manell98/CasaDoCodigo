@@ -11,7 +11,8 @@
 
 	<form action="/produtos/produtos" method="post">
 		<div>
-			<label>Título</label> <input type="text" name="titulo" />
+			<label>Título</label> 
+			<input type="text" name="titulo" />
 		</div>
 		
 		<div>
