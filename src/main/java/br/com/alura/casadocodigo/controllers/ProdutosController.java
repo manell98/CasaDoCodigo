@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.alura.casadocodigo.daos.ProdutoDAO;
 import br.com.alura.casadocodigo.enums.TipoPreco;
@@ -26,10 +27,11 @@ public class ProdutosController {
 	}
 	
 	@RequestMapping(value = "/produtos", method = RequestMethod.POST)
-	public String gravar(Produto produto) {		
-		produtoDao.save(produto);
+	public ModelAndView gravar(Produto produto, RedirectAttributes redirectAttributes) {		
+		produtoDao.save(produto);		
+		redirectAttributes.addFlashAttribute("sucesso", "Produto cadastrado com sucesso!");
 		
-		return "produtos/ok";
+		return new ModelAndView("redirect:produtos");
 	}
 	
 	@RequestMapping(value = "/produtos", method = RequestMethod.GET)
