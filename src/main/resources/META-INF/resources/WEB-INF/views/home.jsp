@@ -1,22 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Livros - Casa do Código</title>
+<meta charset="UTF-8">et="ISO-8859-1">
+<title>Livros - Casa do CÃ³digo</title>
 </head>
 <body>
 
-	<h1>Casa do Código</h1>
+	<h1>Casa do CÃ³digo</h1>
 	
 	<table>
 		<tr>
 			<td>Java 8</td>
-			<td>Certificação OCJP</td>
+			<td>CertificaÃ§Ã£o OCJP</td>
 		</tr>
 		<tr>
-			<td>TDD na Prática</td>
+			<td>TDD na PrÃ¡tica</td>
 			<td>Android</td>
 		</tr>	
 	</table>
