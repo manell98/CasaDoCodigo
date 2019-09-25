@@ -1,7 +1,10 @@
 package br.com.alura.casadocodigo.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,7 +30,12 @@ public class ProdutosController {
 	}
 	
 	@RequestMapping(value = "/produtos", method = RequestMethod.POST)
-	public ModelAndView gravar(Produto produto, RedirectAttributes redirectAttributes) {		
+	public ModelAndView gravar(@Valid Produto produto, BindingResult result, RedirectAttributes redirectAttributes) {	
+		
+		if(result.hasErrors()) {
+	        return form();
+	    }
+		
 		produtoDao.save(produto);		
 		redirectAttributes.addFlashAttribute("sucesso", "Produto cadastrado com sucesso!");
 		
