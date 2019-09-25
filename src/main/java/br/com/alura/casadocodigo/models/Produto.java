@@ -1,5 +1,6 @@
 package br.com.alura.casadocodigo.models;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Produto {
@@ -24,6 +27,9 @@ public class Produto {
 
 	@NotEmpty(message="O campo páginas é de preenchimento obrigatório")
 	private String paginas;
+	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Calendar dataLancamento;
 	
 	@ElementCollection
 	private List<Preco> precos;
@@ -59,6 +65,14 @@ public class Produto {
 	public void setPrecos(List<Preco> precos) {
 		this.precos = precos;
 	}
+	
+	public Calendar getDataLancamento() {
+		return dataLancamento;
+	}
+	public void setDataLancamento(Calendar dataLancamento) {
+		this.dataLancamento = dataLancamento;
+	}
+	
 	@Override
 	public String toString() {
 		return "Produto [titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas + "]";
